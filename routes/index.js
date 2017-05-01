@@ -2,15 +2,15 @@ var express = require('express');
 var router = express.Router();
 var mongodb = require('mongodb');
 
- 
+
 router.get('/thelist', function(req, res){
- 
+
   // Get a Mongo client to work with the Mongo server
   var MongoClient = mongodb.MongoClient;
- 
+
   // Define where the MongoDB server is
-  var url = 'mongodb://localhost:27017/sampsite';
- 
+  var url = 'mongodb://localhost:27017/tmnt';
+
   // Connect to the server
   MongoClient.connect(url, function (err, db) {
   if (err) {
@@ -18,10 +18,10 @@ router.get('/thelist', function(req, res){
   } else {
     // We are connected
     console.log('Connection established to', url);
- 
+
     // Get the documents collection
     var collection = db.collection('table');
- 
+
     // Find all students
     collection.find({}).toArray(function (err, result) {
       if (err) {
@@ -29,7 +29,7 @@ router.get('/thelist', function(req, res){
       } else if (result.length) {
         console.log(result);
         /*res.render('studentlist',{
- 
+
           // Pass the returned database documents to Jade
           "studentlist" : result
         });*/
@@ -45,13 +45,13 @@ router.get('/thelist', function(req, res){
 });
 
 router.get('/tweet', function(req, res){
- 
+
   // Get a Mongo client to work with the Mongo server
   var MongoClient = mongodb.MongoClient;
- 
+
   // Define where the MongoDB server is
-  var url = 'mongodb://localhost:27017/sampsite';
- 
+  var url = 'mongodb://localhost:27017/tmnt';
+
   // Connect to the server
   MongoClient.connect(url, function (err, db) {
   if (err) {
@@ -59,10 +59,10 @@ router.get('/tweet', function(req, res){
   } else {
     // We are connected
     console.log('Connection established to', url);
- 
+
     // Get the documents collection
     var collection = db.collection('tweet');
- 
+
     // Find all students
     collection.find({}).toArray(function (err, result) {
       if (err) {
@@ -70,7 +70,7 @@ router.get('/tweet', function(req, res){
       } else if (result.length) {
         console.log(result);
         /*res.render('studentlist',{
- 
+
           // Pass the returned database documents to Jade
           "studentlist" : result
         });*/
@@ -86,13 +86,13 @@ router.get('/tweet', function(req, res){
 });
 
 router.get('/lineChart', function(req, res){
- 
+
   // Get a Mongo client to work with the Mongo server
   var MongoClient = mongodb.MongoClient;
- 
+
   // Define where the MongoDB server is
-  var url = 'mongodb://localhost:27017/sampsite';
- 
+  var url = 'mongodb://localhost:27017/tmnt';
+
   // Connect to the server
   MongoClient.connect(url, function (err, db) {
   if (err) {
@@ -100,10 +100,10 @@ router.get('/lineChart', function(req, res){
   } else {
     // We are connected
     console.log('Connection established to', url);
- 
+
     // Get the documents collection
     var collection = db.collection('lineChart');
- 
+
     // Find all students
     collection.find({}).toArray(function (err, result) {
       if (err) {
@@ -111,7 +111,7 @@ router.get('/lineChart', function(req, res){
       } else if (result.length) {
         console.log(result);
         /*res.render('studentlist',{
- 
+
           // Pass the returned database documents to Jade
           "studentlist" : result
         });*/
@@ -125,9 +125,9 @@ router.get('/lineChart', function(req, res){
   }
   });
 });
- 
 
- 
+
+
 module.exports = router;
 
 

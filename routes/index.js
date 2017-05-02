@@ -27,9 +27,9 @@ router.get('/candidates', function(req, res){
         res.send(err);
       } else if (result.length) {
         console.log(result);
-        res.send(result);
+        res.json(result);
       } else {
-        res.send('No documents found');
+        res.json('{"error":"no documents found"}');
       }
       //Close connection
       db.close();
@@ -63,9 +63,9 @@ router.get('/places', function(req, res){
         res.send(err);
       } else if (result.length) {
         console.log(result);
-        res.send(result);
+        res.json(result);
       } else {
-        res.send('No documents found');
+        res.json('{"error":"no documents found"}');
       }
       //Close connection
       db.close();
@@ -98,9 +98,9 @@ router.get('/weeks', function(req, res){
         res.send(err);
       } else if (result.length) {
         console.log(result);
-        res.send(result);
+        res.json(result);
       } else {
-        res.send('No documents found');
+        res.json('{"error":"no documents found"}');
       }
       //Close connection
       db.close();
@@ -112,11 +112,3 @@ router.get('/weeks', function(req, res){
 
 
 module.exports = router;
-
-
-
-/*
-
-db.students.insert([{"student":"Dale Cooper", "street": "123" , "city": "yaquimechi", "state": "WA", "sex" : "M", "gpa": 3.5 }])
-
-*/

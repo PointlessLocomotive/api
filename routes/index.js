@@ -3,13 +3,13 @@ var router = express.Router();
 var mongodb = require('mongodb');
 
 
-router.get('/thelist', function(req, res){
+router.get('/candidates', function(req, res){
 
   // Get a Mongo client to work with the Mongo server
   var MongoClient = mongodb.MongoClient;
 
   // Define where the MongoDB server is
-  var url = 'mongodb://localhost:27017/tmnt';
+  var url = 'mongodb://10.40.60.191:27017/tmnt';
 
   // Connect to the server
   MongoClient.connect(url, function (err, db) {
@@ -20,19 +20,13 @@ router.get('/thelist', function(req, res){
     console.log('Connection established to', url);
 
     // Get the documents collection
-    var collection = db.collection('table');
+    var collection = db.collection('candidates');
 
-    // Find all students
     collection.find({}).toArray(function (err, result) {
       if (err) {
         res.send(err);
       } else if (result.length) {
         console.log(result);
-        /*res.render('studentlist',{
-
-          // Pass the returned database documents to Jade
-          "studentlist" : result
-        });*/
         res.send(result);
       } else {
         res.send('No documents found');
@@ -44,13 +38,13 @@ router.get('/thelist', function(req, res){
   });
 });
 
-router.get('/tweet', function(req, res){
+router.get('/places', function(req, res){
 
   // Get a Mongo client to work with the Mongo server
   var MongoClient = mongodb.MongoClient;
 
   // Define where the MongoDB server is
-  var url = 'mongodb://localhost:27017/tmnt';
+  var url = 'mongodb://10.40.60.191:27017/tmnt';
 
   // Connect to the server
   MongoClient.connect(url, function (err, db) {
@@ -61,19 +55,14 @@ router.get('/tweet', function(req, res){
     console.log('Connection established to', url);
 
     // Get the documents collection
-    var collection = db.collection('tweet');
+    var collection = db.collection('places');
 
-    // Find all students
+
     collection.find({}).toArray(function (err, result) {
       if (err) {
         res.send(err);
       } else if (result.length) {
         console.log(result);
-        /*res.render('studentlist',{
-
-          // Pass the returned database documents to Jade
-          "studentlist" : result
-        });*/
         res.send(result);
       } else {
         res.send('No documents found');
@@ -85,13 +74,13 @@ router.get('/tweet', function(req, res){
   });
 });
 
-router.get('/lineChart', function(req, res){
+router.get('/weeks', function(req, res){
 
   // Get a Mongo client to work with the Mongo server
   var MongoClient = mongodb.MongoClient;
 
   // Define where the MongoDB server is
-  var url = 'mongodb://localhost:27017/tmnt';
+  var url = 'mongodb://10.40.60.191:27017/tmnt';
 
   // Connect to the server
   MongoClient.connect(url, function (err, db) {
@@ -102,19 +91,13 @@ router.get('/lineChart', function(req, res){
     console.log('Connection established to', url);
 
     // Get the documents collection
-    var collection = db.collection('lineChart');
+    var collection = db.collection('weeks');
 
-    // Find all students
     collection.find({}).toArray(function (err, result) {
       if (err) {
         res.send(err);
       } else if (result.length) {
         console.log(result);
-        /*res.render('studentlist',{
-
-          // Pass the returned database documents to Jade
-          "studentlist" : result
-        });*/
         res.send(result);
       } else {
         res.send('No documents found');

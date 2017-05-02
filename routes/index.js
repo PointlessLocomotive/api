@@ -9,7 +9,7 @@ router.get('/candidates', function(req, res){
   var MongoClient = mongodb.MongoClient;
 
   // Define where the MongoDB server is
-  var url = 'mongodb://10.40.60.191:27017/tmnt';
+  var url = 'mongodb://localhost:27017/tmnt';
 
   // Connect to the server
   MongoClient.connect(url, function (err, db) {
@@ -44,7 +44,7 @@ router.get('/places', function(req, res){
   var MongoClient = mongodb.MongoClient;
 
   // Define where the MongoDB server is
-  var url = 'mongodb://10.40.60.191:27017/tmnt';
+  var url = 'mongodb://localhost:27017/tmnt';
 
   // Connect to the server
   MongoClient.connect(url, function (err, db) {
@@ -80,7 +80,7 @@ router.get('/weeks', function(req, res){
   var MongoClient = mongodb.MongoClient;
 
   // Define where the MongoDB server is
-  var url = 'mongodb://10.40.60.191:27017/tmnt';
+  var url = 'mongodb://localhost:27017/tmnt';
 
   // Connect to the server
   MongoClient.connect(url, function (err, db) {
